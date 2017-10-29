@@ -1,0 +1,14 @@
+spring:
+  mail:
+    host: smtp.163.com
+    username: vsmj012@163.com
+    password: mj123456
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+server:
+  port: 8888
