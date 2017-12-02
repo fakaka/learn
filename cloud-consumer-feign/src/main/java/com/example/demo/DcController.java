@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DcController {
+
 	@Autowired
 	DcClient dcClient;
 
@@ -13,4 +14,5 @@ public class DcController {
 	public String dc() {
 		return dcClient.consumer();
 	}
+
 }
