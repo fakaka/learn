@@ -36,4 +36,3 @@ hs_err_pid*
 # 临时不上传
 /boot-quartz-1
 /boot-redis
-/boot-webflux
