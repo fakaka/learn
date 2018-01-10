@@ -1,9 +1,17 @@
-import java.net.*;
-import java.nio.*;
-import java.nio.channels.*;
-import java.util.*;
+package com.mj.io.nio.example1;
+
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.nio.ByteBuffer;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
+import java.util.Iterator;
+import java.util.Set;
 
 public class Server {
+
 	ServerSocketChannel ssc;
 
 	public void start() {
@@ -12,8 +20,7 @@ public class Server {
 			ServerSocketChannel ssc = ServerSocketChannel.open();
 			ssc.configureBlocking(false);
 			ServerSocket ss = ssc.socket();
-			InetSocketAddress address = new InetSocketAddress(55555);
-			ss.bind(address);
+			ss.bind(new InetSocketAddress(55555));
 			ssc.register(selector, SelectionKey.OP_ACCEPT);
 			System.out.println("端口注册完毕!");
 			while (true) {
@@ -42,8 +49,9 @@ public class Server {
 								e.printStackTrace();
 								break;
 							}
-							if (a == -1)
+							if (a == -1) {
 								break;
+							}
 							if (a > 0) {
 								byte[] b = echoBuffer.array();
 								System.out.println("接收数据: " + new String(b));
@@ -62,5 +70,9 @@ public class Server {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static void main(String[] args) {
+		new Server().start();
 	}
 }

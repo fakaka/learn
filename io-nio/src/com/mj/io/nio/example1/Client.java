@@ -1,18 +1,20 @@
-import java.net.*;
-import java.nio.*;
-import java.nio.channels.*;
+package com.mj.io.nio.example1;
+
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.SocketChannel;
 
 public class Client {
+
 	public void start() {
 		try {
-			SocketAddress address = new InetSocketAddress("localhost", 55555);
-			SocketChannel client = SocketChannel.open(address);
+			SocketChannel client = SocketChannel.open(new InetSocketAddress("localhost", 55555));
 			client.configureBlocking(false);
 			String a = "asdasdasdasddffasfas";
 			ByteBuffer buffer = ByteBuffer.allocate(20);
 			buffer.put(a.getBytes());
 			buffer.clear();
-			int d = client.write(buffer);
+			client.write(buffer);
 			System.out.println("发送数据: " + new String(buffer.array()));
 			while (true) {
 				buffer.flip();
@@ -28,5 +30,9 @@ public class Client {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static void main(String[] args) {
+		new Client().start();
 	}
 }
