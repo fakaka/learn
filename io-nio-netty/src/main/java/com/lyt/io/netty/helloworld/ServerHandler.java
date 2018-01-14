@@ -5,6 +5,7 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
+@SuppressWarnings("deprecation")
 public class ServerHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
@@ -19,9 +20,11 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 		buf.readBytes(req);
 		String body = new String(req, "utf-8");
 		System.out.println("Server :" + body);
-		String response = "返回给客户端的响应：" + body;
-		ctx.writeAndFlush(Unpooled.copiedBuffer(response.getBytes()));
-		// .addListener(ChannelFutureListener.CLOSE);
+		String responseBody = "返回给客户端的响应：" + body;
+		ctx.writeAndFlush(Unpooled.copiedBuffer(responseBody.getBytes()));
+		// 添加一个关闭的监听,处理完就断开 
+		// .addListener(ChannelFutureListener.CLOSE)
+
 	}
 
 	@Override

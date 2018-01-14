@@ -5,6 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelOutboundHandlerAdapter;
 import io.netty.channel.ChannelPromise;
 
+@SuppressWarnings("deprecation")
 public class TimeEncoder extends ChannelOutboundHandlerAdapter {
 
 	@Override
