@@ -26,13 +26,19 @@ hs_err_pid*
 /.metadata
 /.recommenders
 /RemoteSystemsTempFiles
+.classpath
+.springBeans
 
 **/.mvn
 **/.settings
 **/target
 
 /Demo
+/spring-source
+/spring-source-boot
 
 # 临时不上传
 /boot-quartz-1
 /boot-redis
+/Servers
+
