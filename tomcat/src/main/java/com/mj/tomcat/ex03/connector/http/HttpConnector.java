@@ -16,7 +16,7 @@ public class HttpConnector implements Runnable {
 		try {
 			serverSocket = new ServerSocket(1223, 1);
 			System.out.println("http://localhost:1223");
-			System.out.println();
+			System.out.println("---------------------");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -34,7 +34,7 @@ public class ServletProcessor {
 
 		Class clazz = null;
 		try {
-			clazz = loader.loadClass("com.mj.tomcat.ex03." + servletName);
+			clazz = loader.loadClass("com.mj.tomcat.ex03.servlet." + servletName);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -44,6 +44,7 @@ public class ServletProcessor {
 		try {
 
 			servlet = (Servlet) clazz.newInstance();
+			response.write("HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n".getBytes());
 			servlet.service(request, response);
 			response.finishResponse();
 

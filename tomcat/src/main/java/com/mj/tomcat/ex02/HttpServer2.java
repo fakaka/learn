@@ -40,6 +40,7 @@ public class HttpServer2 {
 				if (uri != null) {
 					if (uri.startsWith("/servlet/")) {
 						ServletProcessor processor = new ServletProcessor();
+						output.write("HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n".getBytes());
 						processor.process(request, response);
 					} else {
 						response.sendStaticResource();
