@@ -14,8 +14,6 @@ public interface List<E> extends Collection<E> {
 
 	public void addAll();
 
-	public void remove();
-
 	public E remove(int index);
 
 	public E remove(E ele);

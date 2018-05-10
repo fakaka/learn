@@ -1,7 +1,8 @@
+package test;
 import com.mj.collection.ArrayList;
 import com.mj.collection.List;
 
-public class TestArrayList {
+public class ArrayListTest {
 
 	public static void main(String[] args) {
 		List<String> list = new ArrayList<>();

@@ -67,11 +67,6 @@ public class ArrayList<E> implements List<E> {
 	}
 
 	@Override
-	public void remove() {
-
-	}
-
-	@Override
 	public E remove(int index) {
 		if (index < 0 || index >= size) {
 			throw new IllegalArgumentException("size: " + size + " index: " + index);
